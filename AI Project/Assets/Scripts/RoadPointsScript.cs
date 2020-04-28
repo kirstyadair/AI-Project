@@ -6,12 +6,18 @@ public class RoadPointsScript : MonoBehaviour
 {
     [SerializeField] GameObject leftLanePoints;
     [SerializeField] GameObject rightLanePoints;
-    public Transform[] leftPoints;
-    public Transform[] rightPoints;
+    public List<Transform> leftPoints = new List<Transform>();
+    public List<Transform> rightPoints = new List<Transform>();
 
     void Start()
     {
-        leftPoints = leftLanePoints.GetComponentsInChildren<Transform>();
-        rightPoints = rightLanePoints.GetComponentsInChildren<Transform>();
+        for (int i = 0; i < leftLanePoints.transform.childCount; i++)
+        {
+            leftPoints.Add(leftLanePoints.transform.GetChild(i));
+        }
+        for (int i = 0; i < rightLanePoints.transform.childCount; i++)
+        {
+            rightPoints.Add(rightLanePoints.transform.GetChild(i));
+        }
     }
 }

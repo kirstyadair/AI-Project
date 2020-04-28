@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class DriveNormallyScript : MonoBehaviour
 {
-    [SerializeField] CarScript car;
+    CarScript car;
     
     bool returnToMainTree = false;
     bool switchingLanes = false;
+
+    private void Start()
+    {
+        car = GetComponent<CarScript>();
+    }
 
     /// <summary>
     /// Call this when switching back to the DriveNormally state

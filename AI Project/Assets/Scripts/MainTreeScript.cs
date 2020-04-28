@@ -22,6 +22,11 @@ public class MainTreeScript : MonoBehaviour
     public CurrentSubtree state;
     [SerializeField] DriveNormallyScript driveNormally;
 
+    private void Start()
+    {
+        state = CurrentSubtree.DRIVENORMALLY;
+    }
+
     void Update()
     {
         if (state == CurrentSubtree.DRIVENORMALLY)
