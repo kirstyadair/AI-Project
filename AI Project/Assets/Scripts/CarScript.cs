@@ -12,6 +12,12 @@ public class CarScript : MonoBehaviour
     [SerializeField] float speed;
     Vector3 desiredVelocity;
     Vector3 target;
+    Rigidbody rigidbody;
+
+    private void Start()
+    {
+        rigidbody = GetComponent<Rigidbody>();
+    }
 
     public void SteerToNextPoint()
     {
@@ -24,7 +30,7 @@ public class CarScript : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, target);
+        Gizmos.DrawLine(transform.position, transform.position + desiredVelocity);
         Gizmos.color = Color.blue;
         Gizmos.DrawCube(target, new Vector3(0.1f, 0.1f, 0.1f));
         Gizmos.color = Color.green;
@@ -34,13 +40,13 @@ public class CarScript : MonoBehaviour
     public void Seek(Vector3 targetPosition)
     {
         desiredVelocity = Vector3.Normalize(targetPosition - transform.position) * speed;
+        transform.rotation = Quaternion.LookRotation(desiredVelocity);
         target = targetPosition;
         transform.position += desiredVelocity;
 
         if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
         {
             currentPointNumber++;
-            Debug.Log("increased point number to " + currentPointNumber);
         }
     }
 
