@@ -39,7 +39,7 @@ public class CarScript : MonoBehaviour
     public void Seek(Vector3 targetPosition)
     {
         desiredVelocity = Vector3.Normalize(targetPosition - transform.position) * speed;
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(desiredVelocity), 0.1f);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(desiredVelocity), 0.05f);
         transform.position += desiredVelocity;
 
         if (Vector3.Distance(transform.position, targetPosition) < 0.1f)

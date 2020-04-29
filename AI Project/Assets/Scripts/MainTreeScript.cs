@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum CurrentSubtree
 {
@@ -20,13 +21,14 @@ public enum State
 public class MainTreeScript : MonoBehaviour
 {
     public CurrentSubtree state;
-    [SerializeField] DriveNormallyScript driveNormally;
+    DriveNormallyScript driveNormally;
 
 
 
     private void Start()
     {
         state = CurrentSubtree.DRIVENORMALLY;
+        driveNormally = GetComponent<DriveNormallyScript>();
     }
 
 
