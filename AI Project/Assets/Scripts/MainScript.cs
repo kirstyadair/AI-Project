@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ public class MainScript : MonoBehaviour
     [SerializeField] Text buttonText;
     [SerializeField] Text carCount;
     [SerializeField] Text[] carFields;
+    public Route[] routes;
     List<MainTreeScript> cars = new List<MainTreeScript>();
 
 
@@ -51,4 +53,11 @@ public class MainScript : MonoBehaviour
             else if (cars[i].state == CurrentSubtree.CORRECTIONS_REQUIRED) carFields[i].text = "<b>Car " + (i + 1) + ":   <color=blue>Correcting</color></b>";
         }
     }
+}
+
+[Serializable]
+public class Route
+{
+    public RoadPointsScript[] leftPoints;
+    public RoadPointsScript[] rightPoints;
 }

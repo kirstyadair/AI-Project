@@ -6,18 +6,22 @@ public class CarScript : MonoBehaviour
 {
     public bool isInLeftLane = false;
     GameObject currentRoadPiece;
-    public List<Transform> leftPoints;
-    public List<Transform> rightPoints;
+    RoadPointsScript[] leftPoints;
+    RoadPointsScript[] rightPoints;
     public int currentPointNumber = 0;
     [SerializeField] float speed;
+    [SerializeField] int routeIndex;
     Vector3 desiredVelocity;
     Rigidbody rigidbody;
-
+    MainScript main;
 
 
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        main = GameObject.Find("GameController").GetComponent<MainScript>();
+        leftPoints = main.routes[routeIndex].leftPoints;
+        rightPoints = main.routes[routeIndex].rightPoints;
     }
 
 
@@ -28,6 +32,13 @@ public class CarScript : MonoBehaviour
         if (isInLeftLane) pointPosition = leftPoints[currentPointNumber].position;
         else pointPosition = rightPoints[currentPointNumber].position;
         Seek(pointPosition);
+    }
+
+
+
+    private void OnDrawGizmos()
+    {
+        
     }
 
 
@@ -44,21 +55,20 @@ public class CarScript : MonoBehaviour
 
         if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
         {
-            
+            int previousPoint = currentPointNumber;
             currentPointNumber++;
-        }
-    }
+            if ((currentPointNumber >= rightPoints.Length && !isInLeftLane) || (currentPointNumber >= leftPoints.Length && isInLeftLane)) currentPointNumber = 0;
 
-
-
-    void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject.CompareTag("Road"))
-        {
-            currentRoadPiece = collision.gameObject;
-            leftPoints = collision.gameObject.GetComponent<RoadPointsScript>().leftPoints;
-            rightPoints = collision.gameObject.GetComponent<RoadPointsScript>().rightPoints;
-            currentPointNumber = 0;
+            if (isInLeftLane)
+            {
+                leftPoints[previousPoint].StopRecording();
+                leftPoints[currentPointNumber].StartRecording();
+            }
+            else
+            {
+                rightPoints[previousPoint].StopRecording();
+                rightPoints[currentPointNumber].StartRecording();
+            }
         }
     }
 }

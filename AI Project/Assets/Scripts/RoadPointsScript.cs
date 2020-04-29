@@ -4,22 +4,36 @@ using UnityEngine;
 
 public class RoadPointsScript : MonoBehaviour
 {
-    [SerializeField] GameObject leftLanePoints;
-    [SerializeField] GameObject rightLanePoints;
-    public List<Transform> leftPoints = new List<Transform>();
-    public List<Transform> rightPoints = new List<Transform>();
+    public Vector3 position;
+    public float timeToNextPoint = 0;
+    bool recording = false;
 
 
 
-    void Start()
+    private void Start()
     {
-        for (int i = 0; i < leftLanePoints.transform.childCount; i++)
-        {
-            leftPoints.Add(leftLanePoints.transform.GetChild(i));
-        }
-        for (int i = 0; i < rightLanePoints.transform.childCount; i++)
-        {
-            rightPoints.Add(rightLanePoints.transform.GetChild(i));
-        }
+        position = transform.position;
+    }
+
+
+
+
+    private void Update()
+    {
+        if (recording) timeToNextPoint += Time.deltaTime;
+    }
+
+
+
+    public void StartRecording()
+    {
+        recording = true;
+        timeToNextPoint = 0;
+    }
+
+
+    public void StopRecording()
+    {
+        recording = false;
     }
 }
