@@ -9,6 +9,8 @@ public class RoadPointsScript : MonoBehaviour
     public List<Transform> leftPoints = new List<Transform>();
     public List<Transform> rightPoints = new List<Transform>();
 
+
+
     void Start()
     {
         for (int i = 0; i < leftLanePoints.transform.childCount; i++)

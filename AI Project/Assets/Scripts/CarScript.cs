@@ -11,13 +11,16 @@ public class CarScript : MonoBehaviour
     public int currentPointNumber = 0;
     [SerializeField] float speed;
     Vector3 desiredVelocity;
-    Vector3 target;
     Rigidbody rigidbody;
+
+
 
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
     }
+
+
 
     public void SteerToNextPoint()
     {
@@ -27,28 +30,26 @@ public class CarScript : MonoBehaviour
         Seek(pointPosition);
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + desiredVelocity);
-        Gizmos.color = Color.blue;
-        Gizmos.DrawCube(target, new Vector3(0.1f, 0.1f, 0.1f));
-        Gizmos.color = Color.green;
-        Gizmos.DrawCube(transform.position, new Vector3(0.1f, 0.1f, 0.1f));
-    }
 
+
+    /// <summary>
+    /// Seek any given point, and rotate towards the point
+    /// </summary>
+    /// <param name="targetPosition">The position to be seeked</param>
     public void Seek(Vector3 targetPosition)
     {
         desiredVelocity = Vector3.Normalize(targetPosition - transform.position) * speed;
-        transform.rotation = Quaternion.LookRotation(desiredVelocity);
-        target = targetPosition;
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(desiredVelocity), 0.1f);
         transform.position += desiredVelocity;
 
         if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
         {
+            
             currentPointNumber++;
         }
     }
+
+
 
     void OnTriggerEnter(Collider collision)
     {

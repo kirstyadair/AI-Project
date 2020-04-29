@@ -9,10 +9,14 @@ public class DriveNormallyScript : MonoBehaviour
     bool returnToMainTree = false;
     bool switchingLanes = false;
 
+
+
     private void Start()
     {
         car = GetComponent<CarScript>();
     }
+
+
 
     /// <summary>
     /// Call this when switching back to the DriveNormally state
@@ -23,6 +27,8 @@ public class DriveNormallyScript : MonoBehaviour
         switchingLanes = false;
         StartTree();
     }
+
+
 
     public State StartTree()
     {
