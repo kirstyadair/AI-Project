@@ -8,7 +8,8 @@ public enum CurrentSubtree
     DRIVENORMALLY,
     SIREN_NO_CORRECTIONS,
     SIREN_WITH_CORRECTIONS,
-    CORRECTIONS_REQUIRED
+    CORRECTIONS_REQUIRED,
+    PREPARING
 }
 
 public enum State
@@ -27,7 +28,7 @@ public class MainTreeScript : MonoBehaviour
 
     private void Start()
     {
-        state = CurrentSubtree.DRIVENORMALLY;
+        state = CurrentSubtree.PREPARING;
         driveNormally = GetComponent<DriveNormallyScript>();
     }
 
@@ -35,7 +36,7 @@ public class MainTreeScript : MonoBehaviour
 
     void Update()
     {
-        if (state == CurrentSubtree.DRIVENORMALLY)
+        if (state == CurrentSubtree.DRIVENORMALLY || state == CurrentSubtree.PREPARING)
         {
             if (driveNormally.StartTree() == State.SUCCESSFUL) Debug.Log("Tree finished");
         }

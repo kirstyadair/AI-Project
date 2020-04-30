@@ -164,6 +164,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &36990792
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,6 +210,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &56333588
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,6 +256,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &243460299
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,6 +302,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &259517221
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,7 +396,7 @@ RectTransform:
   m_Children:
   - {fileID: 404658296}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -439,6 +447,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &307270663
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,6 +525,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &316379869
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,6 +571,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &366459568
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,7 +758,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &376160050
 GameObject:
@@ -950,6 +964,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &443329421
 GameObject:
   m_ObjectHideFlags: 0
@@ -994,6 +1010,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &493278853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,6 +1056,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &514375516
 GameObject:
   m_ObjectHideFlags: 0
@@ -1082,6 +1102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &532578067
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,6 +1225,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &552034240
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,6 +1271,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &599428987
 GameObject:
   m_ObjectHideFlags: 0
@@ -1291,6 +1317,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &613908018
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,6 +1440,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &644326150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,6 +1486,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &674315608
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,6 +1532,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1635,6 +1669,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &766629052
 GameObject:
   m_ObjectHideFlags: 0
@@ -1679,6 +1715,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &819410758
 GameObject:
   m_ObjectHideFlags: 0
@@ -2006,6 +2044,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &881637671
 GameObject:
   m_ObjectHideFlags: 0
@@ -2127,6 +2167,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2254,6 +2296,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1001 &1071506348
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2388,6 +2432,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &1174221537
 GameObject:
   m_ObjectHideFlags: 0
@@ -2509,6 +2555,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &1209025301
 GameObject:
   m_ObjectHideFlags: 0
@@ -2553,6 +2601,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &1302830213
 GameObject:
   m_ObjectHideFlags: 0
@@ -2597,6 +2647,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &1325923969
 GameObject:
   m_ObjectHideFlags: 0
@@ -2641,6 +2693,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1001 &1330793030
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2775,6 +2829,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &1341285616
 GameObject:
   m_ObjectHideFlags: 0
@@ -2819,6 +2875,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &1377932036
 GameObject:
   m_ObjectHideFlags: 0
@@ -2852,7 +2910,7 @@ Transform:
   - {fileID: 1330793031}
   - {fileID: 307270664}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1436014374
 GameObject:
@@ -2898,6 +2956,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &1453944164
 GameObject:
   m_ObjectHideFlags: 0
@@ -3019,6 +3079,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &1477056187
 GameObject:
   m_ObjectHideFlags: 0
@@ -3140,6 +3202,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &1535881152
 GameObject:
   m_ObjectHideFlags: 0
@@ -3239,6 +3303,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &1558499885
 GameObject:
   m_ObjectHideFlags: 0
@@ -3346,6 +3412,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!4 &1567872906
 Transform:
   m_ObjectHideFlags: 0
@@ -3375,7 +3443,7 @@ PrefabInstance:
     - target: {fileID: 7911064450541991824, guid: a61113c51c245f1479609412e7aa3ea3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.383
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7911064450541991824, guid: a61113c51c245f1479609412e7aa3ea3,
         type: 3}
@@ -3385,7 +3453,7 @@ PrefabInstance:
     - target: {fileID: 7911064450541991824, guid: a61113c51c245f1479609412e7aa3ea3,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.062
+      value: -3.98
       objectReference: {fileID: 0}
     - target: {fileID: 7911064450541991824, guid: a61113c51c245f1479609412e7aa3ea3,
         type: 3}
@@ -3524,6 +3592,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &1628988922
 GameObject:
   m_ObjectHideFlags: 0
@@ -3568,6 +3638,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &1652430455
 GameObject:
   m_ObjectHideFlags: 0
@@ -3612,6 +3684,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &1669235727
 GameObject:
   m_ObjectHideFlags: 0
@@ -3656,6 +3730,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &1671602239
 GameObject:
   m_ObjectHideFlags: 0
@@ -3700,6 +3776,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &1682001918
 GameObject:
   m_ObjectHideFlags: 0
@@ -3764,7 +3842,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1685677879
 GameObject:
@@ -3888,6 +3966,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &1725508065
 GameObject:
   m_ObjectHideFlags: 0
@@ -3965,6 +4045,136 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1725508065}
   m_CullTransparentMesh: 0
+--- !u!1001 &1738281466
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3554518737302775667, guid: a61113c51c245f1479609412e7aa3ea3,
+        type: 3}
+      propertyPath: m_Name
+      value: Car (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911064450541991824, guid: a61113c51c245f1479609412e7aa3ea3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911064450541991824, guid: a61113c51c245f1479609412e7aa3ea3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911064450541991824, guid: a61113c51c245f1479609412e7aa3ea3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.96
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911064450541991824, guid: a61113c51c245f1479609412e7aa3ea3,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911064450541991824, guid: a61113c51c245f1479609412e7aa3ea3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911064450541991824, guid: a61113c51c245f1479609412e7aa3ea3,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911064450541991824, guid: a61113c51c245f1479609412e7aa3ea3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911064450541991824, guid: a61113c51c245f1479609412e7aa3ea3,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911064450541991824, guid: a61113c51c245f1479609412e7aa3ea3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911064450541991824, guid: a61113c51c245f1479609412e7aa3ea3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911064450541991824, guid: a61113c51c245f1479609412e7aa3ea3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911064450541991824, guid: a61113c51c245f1479609412e7aa3ea3,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911064450541991824, guid: a61113c51c245f1479609412e7aa3ea3,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7911064450541991824, guid: a61113c51c245f1479609412e7aa3ea3,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825682665982479735, guid: a61113c51c245f1479609412e7aa3ea3,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825682665982479735, guid: a61113c51c245f1479609412e7aa3ea3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825682665982479735, guid: a61113c51c245f1479609412e7aa3ea3,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780837563967866659, guid: a61113c51c245f1479609412e7aa3ea3,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780837563967866659, guid: a61113c51c245f1479609412e7aa3ea3,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.0013263226
+      objectReference: {fileID: 0}
+    - target: {fileID: 2780837563967866659, guid: a61113c51c245f1479609412e7aa3ea3,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3148725143360637716, guid: a61113c51c245f1479609412e7aa3ea3,
+        type: 3}
+      propertyPath: speed
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 3148725143360637716, guid: a61113c51c245f1479609412e7aa3ea3,
+        type: 3}
+      propertyPath: isInLeftLane
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3148725143360637716, guid: a61113c51c245f1479609412e7aa3ea3,
+        type: 3}
+      propertyPath: currentPointNumber
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2780837563967866659, guid: a61113c51c245f1479609412e7aa3ea3, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: a61113c51c245f1479609412e7aa3ea3, type: 3}
 --- !u!1 &1784470557
 GameObject:
   m_ObjectHideFlags: 0
@@ -4009,6 +4219,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &1791248878
 GameObject:
   m_ObjectHideFlags: 0
@@ -4053,6 +4265,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &1823536538
 GameObject:
   m_ObjectHideFlags: 0
@@ -4097,6 +4311,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &1830908688
 GameObject:
   m_ObjectHideFlags: 0
@@ -4141,6 +4357,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &1851129001
 GameObject:
   m_ObjectHideFlags: 0
@@ -4185,6 +4403,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &1862614834
 GameObject:
   m_ObjectHideFlags: 0
@@ -4401,6 +4621,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &1999081387
 GameObject:
   m_ObjectHideFlags: 0
@@ -4445,6 +4667,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &2046705178
 GameObject:
   m_ObjectHideFlags: 0
@@ -4489,6 +4713,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &2047701679
 GameObject:
   m_ObjectHideFlags: 0
@@ -4533,6 +4759,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1 &2077893970
 GameObject:
   m_ObjectHideFlags: 0
@@ -4577,6 +4805,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   position: {x: 0, y: 0, z: 0}
+  timeToNextPoint: 0
+  hasRecorded: 0
 --- !u!1001 &2495135112219042685
 PrefabInstance:
   m_ObjectHideFlags: 0

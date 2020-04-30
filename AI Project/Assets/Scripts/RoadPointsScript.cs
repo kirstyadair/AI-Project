@@ -7,6 +7,7 @@ public class RoadPointsScript : MonoBehaviour
     public Vector3 position;
     public float timeToNextPoint = 0;
     bool recording = false;
+    public bool hasRecorded = false;
 
 
 
@@ -35,5 +36,6 @@ public class RoadPointsScript : MonoBehaviour
     public void StopRecording()
     {
         recording = false;
+        hasRecorded = true;
     }
 }

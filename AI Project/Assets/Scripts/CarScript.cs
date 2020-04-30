@@ -9,19 +9,24 @@ public class CarScript : MonoBehaviour
     RoadPointsScript[] leftPoints;
     RoadPointsScript[] rightPoints;
     public int currentPointNumber = 0;
-    [SerializeField] float speed;
+    public float speed;
     [SerializeField] int routeIndex;
     Vector3 desiredVelocity;
     Rigidbody rigidbody;
     MainScript main;
+    MainTreeScript mainTree;
 
 
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
         main = GameObject.Find("GameController").GetComponent<MainScript>();
+        mainTree = GetComponent<MainTreeScript>();
         leftPoints = main.routes[routeIndex].leftPoints;
         rightPoints = main.routes[routeIndex].rightPoints;
+
+        if (isInLeftLane) leftPoints[0].StartRecording();
+        else rightPoints[0].StartRecording();
     }
 
 
@@ -38,7 +43,7 @@ public class CarScript : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        
+        Gizmos.DrawCube(PredictFuturePosition(3), new Vector3(0.2f, 1, 0.2f));
     }
 
 
@@ -61,14 +66,84 @@ public class CarScript : MonoBehaviour
 
             if (isInLeftLane)
             {
-                leftPoints[previousPoint].StopRecording();
-                leftPoints[currentPointNumber].StartRecording();
+                if (!leftPoints[currentPointNumber].hasRecorded)
+                {
+                    leftPoints[previousPoint].StopRecording();
+                    leftPoints[currentPointNumber].StartRecording();
+                }
+                else
+                {
+                    leftPoints[previousPoint].StopRecording();
+                    mainTree.state = CurrentSubtree.DRIVENORMALLY;
+                }
             }
             else
             {
-                rightPoints[previousPoint].StopRecording();
-                rightPoints[currentPointNumber].StartRecording();
+                if (!rightPoints[currentPointNumber].hasRecorded)
+                {
+                    rightPoints[previousPoint].StopRecording();
+                    rightPoints[currentPointNumber].StartRecording();
+                }
+                else
+                {
+                    rightPoints[previousPoint].StopRecording();
+                    mainTree.state = CurrentSubtree.DRIVENORMALLY;
+                }
+            }
+   
+        }
+    }
+
+
+
+    public Vector3 PredictFuturePosition(float timeInFuture)
+    {
+        float counter = 0;
+        int closestPoint = 0;
+        int futurePoint = currentPointNumber;
+        
+        for (int i = 1; i < 20; i++)
+        {
+            if (isInLeftLane)
+            {
+                futurePoint++;
+                if (futurePoint >= leftPoints.Length) futurePoint -= leftPoints.Length;
+                counter += leftPoints[futurePoint].timeToNextPoint;
+
+                if (counter > timeInFuture)
+                {
+                    if (futurePoint == 0) closestPoint = leftPoints.Length - 1;
+                    else closestPoint = futurePoint - 1;
+                    
+                    break;
+                    
+                }
+            }
+            else
+            {
+                futurePoint++;
+                if (futurePoint >= rightPoints.Length) futurePoint -= rightPoints.Length;
+                counter += rightPoints[futurePoint].timeToNextPoint;
+
+                if (counter > timeInFuture)
+                {
+                    if (futurePoint == 0) closestPoint = rightPoints.Length - 1;
+                    else closestPoint = futurePoint - 1;
+
+                    break;
+
+                }
             }
         }
+        if (isInLeftLane) return leftPoints[closestPoint].position;
+        else return rightPoints[closestPoint].position;
+    }
+
+
+
+    public void SwitchingLanes()
+    {
+        if (!isInLeftLane) isInLeftLane = true;
+        else isInLeftLane = false;
     }
 }
