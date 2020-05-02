@@ -9,9 +9,11 @@ public class DriveNormallyScript : MonoBehaviour
     /// Stores all cars EXCLUDING this car
     /// </summary>
     List<CarScript> cars = new List<CarScript>();
-    
+    MainTreeScript mainTree;
     bool returnToMainTree = false;
     bool switchingLanes = false;
+    Vector3 pointOfCollision;
+    bool pointOfCollisionPassed;
 
 
 
@@ -26,6 +28,7 @@ public class DriveNormallyScript : MonoBehaviour
                 cars.Add(car.GetComponent<CarScript>());
             }
         }
+        mainTree = GetComponent<MainTreeScript>();
     }
 
 
@@ -44,11 +47,25 @@ public class DriveNormallyScript : MonoBehaviour
 
     public State StartTree()
     {
-        CheckForCollisions();
+        if (mainTree.state != CurrentSubtree.PREPARING) CheckForCollisions();
 
         if (!switchingLanes)
         {
             car.SteerToNextPoint();
+            if (car.isInLeftLane)
+            {
+                Debug.Log("A");
+                if (CheckIfPastPointOfCollision())
+                {
+                    Debug.Log("C");
+                    if (CheckRadius() == State.SUCCESSFUL)
+                    {
+                        Debug.Log("returning to right lane");
+                        car.isInLeftLane = false;
+                    }
+                }
+                
+            }
         }
         else
         {
@@ -71,8 +88,45 @@ public class DriveNormallyScript : MonoBehaviour
                 if (car.PredictFuturePosition(2) == otherCar.PredictFuturePosition(2) && (car.speed > otherCar.speed))
                 {
                     switchingLanes = true;
+                    pointOfCollision = car.PredictFuturePosition(2);
+                    pointOfCollisionPassed = false;
                 }
             }
         }
+    }
+
+
+
+    State CheckRadius()
+    {
+        // Check the radius
+        Collider[] collisions = Physics.OverlapSphere(transform.position, 1);
+        Debug.Log("D");
+        if (collisions.Length <= 1)
+        {
+            Debug.Log("E");
+            return State.SUCCESSFUL;
+        }
+        else
+        {
+            foreach (Collider collision in collisions)
+            {
+                Debug.Log(collision.name);
+            }
+        }
+
+        return State.RUNNING;
+    }
+
+
+
+    bool CheckIfPastPointOfCollision()
+    {
+        if (Vector3.Distance(transform.position, pointOfCollision) < 1f)
+        {
+            Debug.Log("B");
+            return true;
+        }
+        else return false;
     }
 }

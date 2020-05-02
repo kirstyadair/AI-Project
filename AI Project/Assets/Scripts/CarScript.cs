@@ -43,7 +43,7 @@ public class CarScript : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawCube(PredictFuturePosition(3), new Vector3(0.2f, 1, 0.2f));
+        Gizmos.DrawWireSphere(transform.position, 1);
     }
 
 
@@ -144,6 +144,6 @@ public class CarScript : MonoBehaviour
     public void SwitchingLanes()
     {
         if (!isInLeftLane) isInLeftLane = true;
-        else isInLeftLane = false;
+        else isInLeftLane = false;        
     }
 }

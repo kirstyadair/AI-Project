@@ -18,7 +18,6 @@ public class RoadPointsScript : MonoBehaviour
 
 
 
-
     private void Update()
     {
         if (recording) timeToNextPoint += Time.deltaTime;
@@ -31,6 +30,7 @@ public class RoadPointsScript : MonoBehaviour
         recording = true;
         timeToNextPoint = 0;
     }
+
 
 
     public void StopRecording()
