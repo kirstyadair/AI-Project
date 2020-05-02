@@ -46,7 +46,7 @@ public class CarScript : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position, 1);
+        Gizmos.DrawWireCube(transform.position, new Vector3(4, 0.5f, 0.5f));
     }
 
 
