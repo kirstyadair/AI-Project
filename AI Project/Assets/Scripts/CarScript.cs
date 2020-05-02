@@ -24,9 +24,6 @@ public class CarScript : MonoBehaviour
         mainTree = GetComponent<MainTreeScript>();
         leftPoints = main.routes[routeIndex].leftPoints;
         rightPoints = main.routes[routeIndex].rightPoints;
-
-        if (isInLeftLane) leftPoints[0].StartRecording();
-        else rightPoints[0].StartRecording();
     }
 
 
@@ -64,32 +61,6 @@ public class CarScript : MonoBehaviour
             currentPointNumber++;
             if ((currentPointNumber >= rightPoints.Length && !isInLeftLane) || (currentPointNumber >= leftPoints.Length && isInLeftLane)) currentPointNumber = 0;
 
-            if (isInLeftLane)
-            {
-                if (!leftPoints[currentPointNumber].hasRecorded)
-                {
-                    leftPoints[previousPoint].StopRecording();
-                    leftPoints[currentPointNumber].StartRecording();
-                }
-                else
-                {
-                    leftPoints[previousPoint].StopRecording();
-                    mainTree.state = CurrentSubtree.DRIVENORMALLY;
-                }
-            }
-            else
-            {
-                if (!rightPoints[currentPointNumber].hasRecorded)
-                {
-                    rightPoints[previousPoint].StopRecording();
-                    rightPoints[currentPointNumber].StartRecording();
-                }
-                else
-                {
-                    rightPoints[previousPoint].StopRecording();
-                    mainTree.state = CurrentSubtree.DRIVENORMALLY;
-                }
-            }
    
         }
     }
@@ -108,7 +79,7 @@ public class CarScript : MonoBehaviour
             {
                 futurePoint++;
                 if (futurePoint >= leftPoints.Length) futurePoint -= leftPoints.Length;
-                counter += leftPoints[futurePoint].timeToNextPoint;
+                counter += leftPoints[futurePoint].timeToNextPoint / (speed * 100);
 
                 if (counter > timeInFuture)
                 {
@@ -123,7 +94,7 @@ public class CarScript : MonoBehaviour
             {
                 futurePoint++;
                 if (futurePoint >= rightPoints.Length) futurePoint -= rightPoints.Length;
-                counter += rightPoints[futurePoint].timeToNextPoint;
+                counter += rightPoints[futurePoint].timeToNextPoint / (speed * 100);
 
                 if (counter > timeInFuture)
                 {

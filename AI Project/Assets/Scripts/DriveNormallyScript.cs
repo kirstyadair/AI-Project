@@ -47,20 +47,22 @@ public class DriveNormallyScript : MonoBehaviour
 
     public State StartTree()
     {
-        if (mainTree.state != CurrentSubtree.PREPARING) CheckForCollisions();
+        // Check future positions for collisions
+        CheckForCollisions();
 
+        // If not currently switching to the left lane
         if (!switchingLanes)
         {
+            // Steer to the next point in the route
             car.SteerToNextPoint();
             if (car.isInLeftLane)
             {
-                Debug.Log("A");
+                // Check if future point of collision has been passed, if one exists
                 if (CheckIfPastPointOfCollision())
                 {
-                    Debug.Log("C");
+                    // Check the radius for other cars
                     if (CheckRadius() == State.SUCCESSFUL)
                     {
-                        Debug.Log("returning to right lane");
                         car.isInLeftLane = false;
                     }
                 }
@@ -100,11 +102,9 @@ public class DriveNormallyScript : MonoBehaviour
     State CheckRadius()
     {
         // Check the radius
-        Collider[] collisions = Physics.OverlapSphere(transform.position, 1);
-        Debug.Log("D");
+        Collider[] collisions = Physics.OverlapSphere(transform.position, 2);
         if (collisions.Length <= 1)
         {
-            Debug.Log("E");
             return State.SUCCESSFUL;
         }
         else
@@ -122,9 +122,10 @@ public class DriveNormallyScript : MonoBehaviour
 
     bool CheckIfPastPointOfCollision()
     {
+        if (pointOfCollision == Vector3.zero) return true;
         if (Vector3.Distance(transform.position, pointOfCollision) < 1f)
         {
-            Debug.Log("B");
+            pointOfCollision = Vector3.zero;
             return true;
         }
         else return false;

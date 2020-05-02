@@ -22,6 +22,11 @@ public class MainScript : MonoBehaviour
         {
             cars.Add(car.GetComponent<MainTreeScript>());
         }
+
+        for (int i = 0; i < cars.Count; i++)
+        {
+            carFields[i].color = cars[i].GetComponentInChildren<MeshRenderer>().materials[0].color;
+        }
         carCount.text = "Number of cars: " + cars.Count;
     }
 
@@ -51,7 +56,6 @@ public class MainScript : MonoBehaviour
             else if (cars[i].state == CurrentSubtree.SIREN_NO_CORRECTIONS) carFields[i].text = "<b>Car " + (i + 1) + ":   <color=brown>Responding To Siren</color></b>";
             else if (cars[i].state == CurrentSubtree.SIREN_WITH_CORRECTIONS) carFields[i].text = "<b>Car " + (i + 1) + ":   <color=red>Responding To Siren + Corrections</color></b>";
             else if (cars[i].state == CurrentSubtree.CORRECTIONS_REQUIRED) carFields[i].text = "<b>Car " + (i + 1) + ":   <color=blue>Correcting</color></b>";
-            else if (cars[i].state == CurrentSubtree.PREPARING) carFields[i].text = "<b>Car " + (i + 1) + ":   <color=orange>Preparing</color></b>";
         }
     }
 }
