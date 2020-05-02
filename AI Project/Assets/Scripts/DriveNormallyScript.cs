@@ -16,7 +16,6 @@ public class DriveNormallyScript : MonoBehaviour
     bool pointOfCollisionPassed;
 
 
-
     private void Start()
     {
         car = GetComponent<CarScript>();
@@ -83,11 +82,34 @@ public class DriveNormallyScript : MonoBehaviour
 
     void CheckForCollisions()
     {
+        Collider[] collisions = Physics.OverlapSphere(transform.position, 2);
+        if (collisions.Length > 1)
+        {
+            foreach (Collider collision in collisions)
+            {
+                CarScript collidingCar = collision.GetComponent<CarScript>();
+                if (collision == mainTree.collider) continue;
+                if (!collidingCar.isInLeftLane && !car.isInLeftLane)
+                {
+                    if (collidingCar.rightLaneSpeed < car.rightLaneSpeed) switchingLanes = true;
+                }
+            }
+        }
+
         foreach (CarScript otherCar in cars)
         {
-            if ((car.isInLeftLane && otherCar.isInLeftLane) || (!car.isInLeftLane && !otherCar.isInLeftLane))
+            if (!car.isInLeftLane && !otherCar.isInLeftLane)
             {
                 if (car.PredictFuturePosition(2) == otherCar.PredictFuturePosition(2) && (car.speed > otherCar.speed))
+                {
+                    switchingLanes = true;
+                    pointOfCollision = car.PredictFuturePosition(2);
+                    pointOfCollisionPassed = false;
+                }
+            }
+            else if (car.isInLeftLane && otherCar.isInLeftLane)
+            {
+                if (car.PredictFuturePosition(2) == otherCar.PredictFuturePosition(2) && (car.rightLaneSpeed > otherCar.rightLaneSpeed))
                 {
                     switchingLanes = true;
                     pointOfCollision = car.PredictFuturePosition(2);

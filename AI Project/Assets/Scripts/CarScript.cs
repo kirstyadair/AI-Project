@@ -10,6 +10,8 @@ public class CarScript : MonoBehaviour
     RoadPointsScript[] rightPoints;
     public int currentPointNumber = 0;
     public float speed;
+    public float rightLaneSpeed;
+    public float leftLaneSpeed;
     [SerializeField] int routeIndex;
     Vector3 desiredVelocity;
     Rigidbody rigidbody;
@@ -32,7 +34,11 @@ public class CarScript : MonoBehaviour
     {
         Vector3 pointPosition;
         if (isInLeftLane) pointPosition = leftPoints[currentPointNumber].position;
-        else pointPosition = rightPoints[currentPointNumber].position;
+        else
+        {
+            pointPosition = rightPoints[currentPointNumber].position;
+            speed = rightLaneSpeed;
+        }
         Seek(pointPosition);
     }
 
@@ -114,7 +120,15 @@ public class CarScript : MonoBehaviour
 
     public void SwitchingLanes()
     {
-        if (!isInLeftLane) isInLeftLane = true;
-        else isInLeftLane = false;        
+        if (!isInLeftLane)
+        {
+            isInLeftLane = true;
+            speed = leftLaneSpeed;
+        }
+        else
+        {
+            isInLeftLane = false;
+            speed = rightLaneSpeed;
+        }
     }
 }

@@ -22,12 +22,14 @@ public class MainTreeScript : MonoBehaviour
 {
     public CurrentSubtree state;
     DriveNormallyScript driveNormally;
-
+    [HideInInspector]
+    public BoxCollider collider;
 
 
     private void Start()
     {
         driveNormally = GetComponent<DriveNormallyScript>();
+        collider = this.gameObject.GetComponent<BoxCollider>();
     }
 
 
