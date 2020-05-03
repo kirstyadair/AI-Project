@@ -37,7 +37,6 @@ public class CarScript : MonoBehaviour
         else
         {
             pointPosition = rightPoints[currentPointNumber].position;
-            speed = rightLaneSpeed;
         }
         Seek(pointPosition);
     }

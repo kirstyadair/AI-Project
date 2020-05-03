@@ -15,6 +15,9 @@ public class DriveNormallyScript : MonoBehaviour
     Vector3 pointOfCollision;
     bool pointOfCollisionPassed;
 
+    [Header("Show Debug.Logs for this car?")]
+    [SerializeField] bool showDebugs;
+
 
     private void Start()
     {
@@ -109,6 +112,14 @@ public class DriveNormallyScript : MonoBehaviour
                 else car.speed = futureCollision.carScript.rightLaneSpeed;
             }
         }
+
+        if (!futureCollision.isCollision && surroundingsCheck == 0)
+        {
+            if (!car.isInLeftLane) car.speed = car.rightLaneSpeed;
+            else car.speed = car.leftLaneSpeed;
+        }
+
+        if (showDebugs) Debug.Log("SC: " + surroundingsCheck + ", FC: " + futureCollision.isCollision);
     }
 
 
@@ -150,15 +161,27 @@ public class DriveNormallyScript : MonoBehaviour
         int carsBeside = 0;
         int carsAhead = 0;
 
-        Collider[] collisionsBeside = Physics.OverlapBox(transform.position, new Vector3(2, 0.5f, 0.5f), transform.rotation);
-        if (collisionsBeside.Length > 1)
+        Collider[] collisions = Physics.OverlapSphere(transform.position, 1);
+        foreach (Collider collider in collisions)
         {
-            carsBeside = collisionsBeside.Length - 1;
-        }
-        Collider[] collisionsAhead = Physics.OverlapBox(transform.position, new Vector3(0.5f, 0.5f, 2f), transform.rotation);
-        if (collisionsAhead.Length > 1)
-        {
-            carsAhead = collisionsAhead.Length - 1;
+            if (collider.gameObject != this.gameObject)
+            {
+                CarScript colliderCar = collider.GetComponent<CarScript>();
+                if (colliderCar == null) continue;
+
+                if (colliderCar.isInLeftLane && car.isInLeftLane && car.rightLaneSpeed > colliderCar.rightLaneSpeed)
+                {
+                    carsAhead++;
+                }
+                if (colliderCar.isInLeftLane && !car.isInLeftLane)
+                {
+                    carsBeside++;
+                }
+                if(!colliderCar.isInLeftLane && car.isInLeftLane)
+                {
+                    carsBeside++;
+                }
+            }
         }
 
         if (carsBeside > 0 && carsAhead > 0) return 3;
@@ -178,7 +201,11 @@ public class DriveNormallyScript : MonoBehaviour
             int importantColliders = collisions.Length;
             foreach (Collider collider in collisions)
             {
-                if (collider.GetComponent<CarScript>().isInLeftLane) importantColliders--;
+                if (collider.GetComponent<CarScript>() == null)
+                {
+                    importantColliders--;
+                }
+                else if (collider.GetComponent<CarScript>().isInLeftLane) importantColliders--;
             }
 
             if (importantColliders > 0) return State.RUNNING;

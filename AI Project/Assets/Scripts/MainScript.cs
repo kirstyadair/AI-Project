@@ -52,7 +52,7 @@ public class MainScript : MonoBehaviour
     {
         for (int i = 0; i < cars.Count; i++)
         {
-            if (cars[i].state == CurrentSubtree.DRIVENORMALLY) carFields[i].text = "<b>Car " + (i + 1) + ":   <color=green>Driving Normally</color></b>";
+            if (cars[i].state == CurrentSubtree.DRIVENORMALLY) carFields[i].text = "<b>Car " + (i + 1) + ":   <color=white>Driving Normally</color></b>";
             else if (cars[i].state == CurrentSubtree.SIREN_NO_CORRECTIONS) carFields[i].text = "<b>Car " + (i + 1) + ":   <color=brown>Responding To Siren</color></b>";
             else if (cars[i].state == CurrentSubtree.SIREN_WITH_CORRECTIONS) carFields[i].text = "<b>Car " + (i + 1) + ":   <color=red>Responding To Siren + Corrections</color></b>";
             else if (cars[i].state == CurrentSubtree.CORRECTIONS_REQUIRED) carFields[i].text = "<b>Car " + (i + 1) + ":   <color=blue>Correcting</color></b>";
