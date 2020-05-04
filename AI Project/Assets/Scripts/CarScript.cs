@@ -10,6 +10,9 @@ public class CarScript : MonoBehaviour
     RoadPointsScript[] rightPoints;
     public int currentPointNumber = 0;
     public float speed;
+    // Used to reset the right lane speed
+    [HideInInspector]
+    public float heldRightLaneSpeed;
     public float rightLaneSpeed;
     public float leftLaneSpeed;
     [SerializeField] int routeIndex;
@@ -26,6 +29,7 @@ public class CarScript : MonoBehaviour
         mainTree = GetComponent<MainTreeScript>();
         leftPoints = main.routes[routeIndex].leftPoints;
         rightPoints = main.routes[routeIndex].rightPoints;
+        heldRightLaneSpeed = rightLaneSpeed;
     }
 
 

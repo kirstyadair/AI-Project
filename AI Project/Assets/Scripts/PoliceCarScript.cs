@@ -10,17 +10,39 @@ public class PoliceCarScript : MonoBehaviour
     [SerializeField] int currentPointNumber;
     Vector3 desiredVelocity;
     [SerializeField] float speed;
+    public static event SirenSounded OnSirenSounded;
+    public delegate void SirenSounded();
+    public static event SirenDisabled OnSirenDisabled;
+    public delegate void SirenDisabled();
+    AudioSource siren;
+    bool sirenOn = false;
 
     // Start is called before the first frame update
     void Start()
     {
         main = GameObject.Find("GameController").GetComponent<MainScript>();
         leftPoints = main.routes[routeIndex].leftPoints;
+        siren = GetComponent<AudioSource>();
     }
 
     void Update()
     {
         SteerToNextPoint();
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            if (sirenOn)
+            {
+                OnSirenDisabled?.Invoke();
+                siren.Stop();
+                sirenOn = false;
+            }
+            else
+            {
+                OnSirenSounded?.Invoke();
+                siren.Play();
+                sirenOn = true;
+            }
+        }
     }
 
     public void SteerToNextPoint()

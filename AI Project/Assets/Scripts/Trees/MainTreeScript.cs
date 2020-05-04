@@ -22,13 +22,21 @@ public class MainTreeScript : MonoBehaviour
 {
     public CurrentSubtree state;
     DriveNormallyScript driveNormally;
+    SirenNoCorrectionsScript siren1Script;
     [HideInInspector]
     public BoxCollider collider;
+
+
+    private void OnEnable()
+    {
+        PoliceCarScript.OnSirenSounded += SirenEnabled;
+    }
 
 
     private void Start()
     {
         driveNormally = GetComponent<DriveNormallyScript>();
+        siren1Script = GetComponent<SirenNoCorrectionsScript>();
         collider = this.gameObject.GetComponent<BoxCollider>();
     }
 
@@ -40,6 +48,17 @@ public class MainTreeScript : MonoBehaviour
         {
             if (driveNormally.StartTree() == State.SUCCESSFUL) Debug.Log("Tree finished");
         }
+        else if (state == CurrentSubtree.SIREN_NO_CORRECTIONS)
+        {
+            siren1Script.StartTree();
+        }
+    }
+
+
+
+    void SirenEnabled()
+    {
+        state = CurrentSubtree.SIREN_NO_CORRECTIONS;
     }
 }
 
