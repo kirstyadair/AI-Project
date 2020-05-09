@@ -11,6 +11,7 @@ public class MainScript : MonoBehaviour
     [SerializeField] Text carCount;
     [SerializeField] Text[] carFields;
     public Route[] routes;
+    [SerializeField] GameObject aboutPanel;
     List<MainTreeScript> cars = new List<MainTreeScript>();
 
 
@@ -43,6 +44,19 @@ public class MainScript : MonoBehaviour
         {
             panelAnimator.SetFloat("Speed", 1);
             buttonText.text = "<";
+        }
+    }
+
+
+    public void ShowAbout()
+    {
+        if (!aboutPanel.activeInHierarchy)
+        {
+            aboutPanel.SetActive(true);
+        }
+        else
+        {
+            aboutPanel.SetActive(false);
         }
     }
 

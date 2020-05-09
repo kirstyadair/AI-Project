@@ -10,6 +10,7 @@ public class PoliceCarScript : MonoBehaviour
     [SerializeField] int currentPointNumber;
     Vector3 desiredVelocity;
     [SerializeField] float speed;
+    [SerializeField] GameObject sirenCone;
     public static event SirenSounded OnSirenSounded;
     public delegate void SirenSounded();
     public static event SirenDisabled OnSirenDisabled;
@@ -35,12 +36,16 @@ public class PoliceCarScript : MonoBehaviour
                 OnSirenDisabled?.Invoke();
                 siren.Stop();
                 sirenOn = false;
+                sirenCone.SetActive(false);
+                speed = 0.04f;
             }
             else
             {
                 OnSirenSounded?.Invoke();
                 siren.Play();
                 sirenOn = true;
+                sirenCone.SetActive(true);
+                speed = 0.05f;
             }
         }
     }
