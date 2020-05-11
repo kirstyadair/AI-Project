@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5585804190457607628}
   - component: {fileID: 9075192367509291043}
   - component: {fileID: 1937367176657181905}
+  - component: {fileID: 6206359793705948553}
   m_Layer: 0
   m_Name: Car
   m_TagString: Car
@@ -96,6 +97,7 @@ MonoBehaviour:
   isInLeftLane: 0
   currentPointNumber: 0
   speed: 0
+  heldRightLaneSpeed: 0
   rightLaneSpeed: 0
   leftLaneSpeed: 0
   routeIndex: 0
@@ -124,6 +126,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23def150317a86c46a94994244aef97b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6206359793705948553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3554518737302775667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d2dcc3266fa4c48824472fa9fdfddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showDebugs: 0
 --- !u!1 &7500517701757128291
 GameObject:
   m_ObjectHideFlags: 0

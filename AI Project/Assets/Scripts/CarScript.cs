@@ -121,6 +121,53 @@ public class CarScript : MonoBehaviour
 
 
 
+    /// <summary>
+    /// Predict the time it will take to reach a given point from the current point
+    /// </summary>
+    /// <param name="pointNumber">Which point in the future?</param>
+    /// <param name="inLeftLane">Is the car in the left lane?</param>
+    public float PredictTimeToPoint(int pointNumber, bool inLeftLane)
+    {
+        if (!inLeftLane)
+        {
+            int point = currentPointNumber;
+            float timeTaken = 0;
+            do
+            {
+                // Find the time from this point to the next point
+                timeTaken += rightPoints[point].timeToNextPoint / (speed * 100);
+                point++;
+                if (point >= rightPoints.Length)
+                {
+                    point = 0;
+                }
+
+            } while (point != pointNumber);
+
+            return timeTaken;
+        }
+        else
+        {
+            int point = currentPointNumber;
+            float timeTaken = 0;
+            do
+            {
+                // Find the time from this point to the next point
+                timeTaken += leftPoints[point].timeToNextPoint / (speed * 100);
+                point++;
+                if (point >= leftPoints.Length)
+                {
+                    point = 0;
+                }
+
+            } while (point != pointNumber);
+
+            return timeTaken;
+        }
+    }
+
+
+
     public void SwitchingLanes()
     {
         if (!isInLeftLane)
